@@ -1,5 +1,5 @@
 const fs=require('node:fs'),assert=require('node:assert/strict');
-const URL=process.env.E2E_GAME_URL||'https://zerokemf.github.io/tetris-battle/';
+const URL=process.env.E2E_GAME_URL||'https://zerokemx-ui.github.io/tetris-battle/';
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 async function browser(port){const tab=await(await fetch(`http://127.0.0.1:${port}/json/new?${encodeURIComponent(URL)}`,{method:'PUT'})).json();const ws=new WebSocket(tab.webSocketDebuggerUrl);await new Promise(r=>ws.onopen=r);let id=0;const pending=new Map(),errors=[];ws.onmessage=e=>{let d=JSON.parse(e.data);if(d.id){pending.get(d.id)(d.result);pending.delete(d.id)}else if(d.method==='Runtime.exceptionThrown')errors.push(d.params)};const send=(method,params={})=>new Promise(r=>{pending.set(++id,r);ws.send(JSON.stringify({id,method,params}))});const js=async expression=>{let r=await send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true,userGesture:true});if(r.exceptionDetails)throw Error(JSON.stringify(r.exceptionDetails));return r.result.value};await send('Runtime.enable');await send('Page.enable');await sleep(1500);return {send,js,errors,close:async()=>{ws.close();await fetch(`http://127.0.0.1:${port}/json/close/${tab.id}`)}};}
 (async()=>{const a=await browser(9567),b=await browser(9568);try{

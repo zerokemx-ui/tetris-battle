@@ -3,7 +3,7 @@
 (() => {
     'use strict';
 
-    const APP_ID = 'io.github.zerokemf.tetris-battle.online.v1';
+    const APP_ID = 'io.github.zerokemx-ui.tetris-battle.online.v1';
     const PROTOCOL = 1;
     const ROOM_ALPHABET = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
     const ROOM_PATTERN = /^[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{6}$/;

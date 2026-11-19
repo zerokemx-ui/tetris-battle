@@ -2,7 +2,7 @@
 
 > A Tetris-style puzzle game built with modern web technologies, featuring full SRS (Super Rotation System) support, rich visual effects, and a synthesized audio engine.
 
-**Play now:** https://zerokemf.github.io/tetris-battle
+**Play now:** https://zerokemx-ui.github.io/tetris-battle
 
 ---
 

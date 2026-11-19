@@ -4,7 +4,7 @@ with tempfile.TemporaryDirectory(prefix='tetris-api-') as d:
  p=subprocess.Popen(['php','-S','127.0.0.1:8786','-t','backend'],env=env,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
  try:
   url='http://127.0.0.1:8786/api.php'
-  def call(body=None,origin='https://zerokemf.github.io'):
+  def call(body=None,origin='https://zerokemx-ui.github.io'):
    req=urllib.request.Request(url,data=None if body is None else json.dumps(body).encode(),headers={'Origin':origin,'Content-Type':'application/json'})
    try:
     with urllib.request.urlopen(req,timeout=3) as r:return r.status,json.load(r)

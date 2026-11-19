@@ -2,7 +2,7 @@
 
 > 俄羅斯方塊對戰遊戲，基於現代 SRS（Super Rotation System）標準，搭載完整視覺效果與音效系統。
 
-**馬上遊玩：** https://zerokemf.github.io/tetris-battle
+**馬上遊玩：** https://zerokemx-ui.github.io/tetris-battle
 
 ---
 

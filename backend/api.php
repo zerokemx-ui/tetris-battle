@@ -2,7 +2,7 @@
 // Small shared friends leaderboard. Server-side private storage, no accounts.
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
-header('Access-Control-Allow-Origin: https://zerokemf.github.io');
+header('Access-Control-Allow-Origin: https://zerokemx-ui.github.io');
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 header('Vary: Origin');
@@ -14,7 +14,7 @@ $path = getenv('TETRIS_SCORES_FILE') ?: __DIR__ . '/private/scores.json';
 $mode = $_GET['mode'] ?? 'solo';
 $item = null;
 if ($method === 'POST') {
-    if (($_SERVER['HTTP_ORIGIN'] ?? '') !== 'https://zerokemf.github.io') reply(403, ['error'=>'Origin not allowed']);
+    if (($_SERVER['HTTP_ORIGIN'] ?? '') !== 'https://zerokemx-ui.github.io') reply(403, ['error'=>'Origin not allowed']);
     if ((int)($_SERVER['CONTENT_LENGTH'] ?? 0) > 2048) reply(413, ['error'=>'Request too large']);
     $raw = file_get_contents('php://input', false, null, 0, 2049);
     if (strlen($raw) > 2048) reply(413, ['error'=>'Request too large']);
